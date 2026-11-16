@@ -1,0 +1,64 @@
+/* EVALUASI.CSS - halaman evaluasi (evaluasi.html) */
+
+/* ================= EVALUASI & PROFIL ================= */
+.qz {
+    margin: 16px 0;
+    padding: 14px;
+    border-radius: 14px;
+    background: rgb(231, 234, 240);
+}
+
+.qz label {
+    display: block;
+    padding: 5px 8px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.qz label:hover {
+    background: #fff;
+}
+
+.qz.right {
+    border-left: 6px solid #2e9b4f;
+}
+
+.qz.wrong {
+    border-left: 6px solid #d33;
+}
+
+#score {
+    font-size: 22px;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 16px;
+}
+
+/* ================= SLIDER EVALUASI ================= */
+.judul-evaluasi {
+    align-self: center;
+    margin: 28px 0 14px;
+    padding: 8px 40px;
+    border-radius: 50px;
+    background: var(--white-color);
+    color: var(--dark-color);
+    box-shadow: 0 6px 18px rgba(11, 46, 89, .18);
+}
+
+.eval-swiper {
+    width: min(920px, 100vw);
+    margin: 0 auto;
+    padding: 6px 0 24px;
+    overflow: hidden;
+}
+
+.eval-swiper .swiper-slide {
+    height: auto;
+}
+
+.eval-card {
+    width: 100%;
+    margin: 0;
+    height: min(74vh, 560px);
+    overflow-y: auto;
+}

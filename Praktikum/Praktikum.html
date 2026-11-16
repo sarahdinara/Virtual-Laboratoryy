@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Virtual Laboratory</title>
+        <link rel="icon" type="image/png" href="../img/Logo-website.png">
+        <link rel="stylesheet" href="../base.css">
+        <link rel="stylesheet" href="Praktikum.css">
+        <link rel="stylesheet" href="../dialog.css">
+    </head>
+    <body>
+
+        <section class="page qopen" id="lab">
+            <button class="btn alt fbtn" style="left:10px" onclick="keluar('menu', PROGRESS.praktikumDone(), 'Kamu belum menyelesaikan praktikum.')">⌂ Menu</button>
+            <button class="btn fbtn" style="right:10px" id="qtoggle">☰ Quest</button>
+            <div id="quest"><h3>Misi Praktikum</h3><div id="qlist"></div></div>
+            <div id="stage"><!-- semua posisi mengikuti gambar background (rasio 16:9) -->
+                <div id="shelf" class="row2"></div><!-- rak atas: alat & bahan -->
+                <div id="tl" class="row2"></div><div id="tr" class="row2"></div><!-- slot di meja, kiri & kanan -->
+                <div id="rack"></div><!-- rak tabung reaksi di tengah meja -->
+            </div>
+            <div id="toast"></div>
+            <button class="btn" id="next" data-go="quiz" title="Lanjut ke Evaluasi">➜</button>
+        </section>
+        <div id="popup">
+            <div>
+                <h3 id="pt"></h3>
+                <p id="pp"></p>
+                <button class="btn" onclick="popup()">OK</button>
+            </div>
+        </div>
+
+        <script src="../audio.js"></script>
+        <script src="../common.js"></script>
+        <script src="Praktikum.js"></script>
+    </body>
+</html>

@@ -1,0 +1,72 @@
+:root { --vl-dark: #465573; --vl-blue: #546a9a; --vl-light: #889fcf; }
+
+/* DIALOG.CSS - kotak peringatan (dipakai Main Menu, Praktikum, Evaluasi) */
+.vl-dialog {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(70, 85, 115, .55);
+    font-family: 'Poppins', 'Trebuchet MS', sans-serif;
+}
+
+.vl-box {
+    background: #fff;
+    border-radius: 20px;
+    padding: 26px 30px;
+    width: min(440px, 90vw);
+    text-align: center;
+    border-top: 8px solid #ffda6a;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, .3);
+    animation: vl-pop .25s ease;
+}
+
+.vl-box h3 {
+    color: var(--vl-dark);
+    margin-bottom: 10px;
+}
+
+.vl-box p {
+    color: var(--vl-dark);
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.vl-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.vl-btn {
+    font: inherit;
+    font-weight: 600;
+    border: 2px solid var(--vl-blue);
+    background: var(--vl-blue);
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.vl-btn:hover {
+    background: var(--vl-light);
+    border-color: var(--vl-light);
+}
+
+.vl-btn.alt {
+    background: #fff;
+    color: var(--vl-blue);
+}
+
+.vl-btn.alt:hover {
+    background: #dbe2f1;
+}
+
+@keyframes vl-pop {
+    from { transform: scale(.9); opacity: 0; }
+}

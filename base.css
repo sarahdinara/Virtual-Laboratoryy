@@ -1,0 +1,174 @@
+
+:root {
+    /* ===== GAMBAR LATAR (path relatif terhadap folder css/) ===== */
+    --bg-lab: url('../img/Background-laboratorium-2.jpeg');          /* background laboratorium (meja + rak) */
+    --bg-panduan: url('../img/Background-Panduan.png'); /* background Panduan*/
+
+    /* ===== WARNA ===== */
+    --primary-color: #dbe2f1;
+    --secondary-color: #889fcf;
+    --pastel-light-blue: #b9c1df;
+    --pastel-gray-blue: #a9badf;
+    --gray-blue: #546a9a;
+    --white-color: #FFFFFF;
+    --dark-color: #465573;
+    --sky: #87ceeb;
+    --sky-l: #e3f6fd;
+    --navy: #0b2e59;
+    --gold: #ffda6a;
+    /* ===== UKURAN (u = 1% lebar area lab 16:9) ===== */
+    --u: calc(min(100vw, 177.78vh) / 100);
+    --iw: calc(var(--u) * 5.2);
+    --ih: calc(var(--u) * 7);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Trebuchet MS', 'Segoe UI', system-ui, sans-serif;
+    color: var(--navy);
+    height: 100vh;
+    overflow: hidden;
+    background: var(--gray-blue);
+}
+
+.page {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .5s, visibility 0s .5s;
+}
+
+.page.active {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity .5s;
+}
+
+.plain {
+    background: var(--bg-panduan) no-repeat center/cover;
+}
+
+.btn {
+    font: inherit;
+    font-weight: 700;
+    border: 0;
+    cursor: pointer;
+    color: #fff;
+    background: var(--gray-blue);
+    padding: 14px 26px;
+    border-radius: 40px;
+    box-shadow: 0 5px 0 var(--navy);
+    transition: transform .15s, box-shadow .15s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    color: var(--navy);
+    background: var(--secondary-color);
+    box-shadow: 0 8px 0 var(--gray-blue);
+}
+
+.btn:active {
+    transform: translateY(4px);
+    box-shadow: 0 1px 0 var(--navy);
+}
+
+.btn.alt {
+    background: var(--sky-l);
+    color: var(--navy);
+    box-shadow: 0 5px 0 var(--pastel-gray-blue);
+}
+
+.card {
+    background: var(--white-color);
+    border-radius: 22px;
+    padding: 28px 34px;
+    margin: 30px auto;
+    width: min(920px, 92vw);
+    box-shadow: 0 12px 40px rgba(11, 46, 89, .18);
+}
+
+.card h2 {
+    margin: 18px 0 8px;
+    color: var(--gray-blue);
+}
+
+.card h1 {
+    text-align: center;
+}
+
+.card li {
+    margin: 5px 0 5px 22px;
+    line-height: 1.5;
+}
+
+.card p {
+    line-height: 1.6;
+}
+
+.row {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    margin: 22px 0 4px;
+    flex-wrap: wrap;
+}
+
+/* placeholder gambar */
+.asset {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 12px;
+    border: 2px dashed rgba(11, 46, 89, .35);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, .4);
+    padding: 4px;
+}
+
+.asset img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+@keyframes bob {
+    50% {
+        transform: translateY(-16px) rotate(2.5deg);
+    }
+
+}
+/* rumus reaksi di halaman Panduan */
+.reaksi {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+    margin: 10px 0;
+    padding: 12px;
+    border-radius: 12px;
+    background: var(--sky-l);
+}
+
+/* Sembunyikan tampilan scrollbar (halaman tetap bisa di-scroll) */
+* {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}

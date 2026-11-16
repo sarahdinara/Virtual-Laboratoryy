@@ -1,0 +1,445 @@
+/* PRAKTIKUM.CSS - halaman laboratorium (praktikum.html) */
+
+/* ================= LAB (stage 16:9 mengikuti gambar background) ================= */
+#lab {
+    background: var(--bg-lab) center / cover no-repeat;
+    overflow: hidden;
+}
+
+#stage {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: min(100vw, 177.78vh);
+    height: min(56.25vw, 100vh);
+    transform: translate(-50%, -50%);
+    background: transparent; 
+}
+
+.row2 {
+    position: absolute;
+    display: flex;
+    gap: calc(var(--u)*.6);
+}
+
+#shelf {
+    left: 6%;
+    right: 14%;
+    top: calc(30.2% - var(--ih));
+    justify-content: space-between;
+}
+
+/* rak atas */
+#tl {
+    left: 4%;
+    bottom: 8%;
+}
+
+#tr {
+    right: 4%;
+    bottom: 8%;
+}
+
+/* slot meja kiri & kanan */
+.slot, .tslot {
+    width: var(--iw);
+    height: var(--ih);
+}
+
+.tslot {
+    border: 2px dashed rgba(255, 255, 255, .3);
+    border-radius: 12px;
+}
+
+#rack {
+    position: absolute;
+    left: 38%;
+    width: 24%;
+    bottom: 8%;
+    height: calc(var(--u)*10.5);
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+#rack::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: calc(var(--u)*2.2);
+    background: linear-gradient(#8aa4d6, #5d76ab);
+    border-radius: 8px;
+    box-shadow: 0 6px 0 #3f5683;
+}
+
+.rslot {
+    width: calc(var(--u)*3.6);
+    height: calc(var(--u)*10.5);
+    position: relative;
+    z-index: 1;
+}
+
+.item {
+    position: absolute;
+    width: var(--iw);
+    height: var(--ih);
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: grab;
+    touch-action: none;
+    user-select: none;
+    transition: opacity .6s;
+}
+
+.item .asset {
+    width: 100%;
+    height: calc(var(--u)*5.2);
+    font-size: calc(var(--u)*2.4);
+}
+
+.item small {
+    font-size: max(10px, calc(var(--u)*.8));
+    font-weight: 700;
+    background: #fff;
+    border-radius: 6px;
+    padding: 1px 5px;
+    margin-top: 3px;
+    text-align: center;
+    line-height: 1.15;
+}
+
+.item.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.item.drag {
+    z-index: 50;
+    cursor: grabbing;
+    pointer-events: none;
+    transform: scale(1.1);
+    filter: drop-shadow(0 12px 8px rgba(0, 0, 0, .35));
+}
+
+.item.snap {
+    transition: left .25s, top .25s, opacity .6s;
+}
+
+.item.shake {
+    animation: shake .4s;
+}
+
+
+@keyframes shake {
+    25% {
+        transform: translateX(-8px);
+    }
+    75% {
+        transform: translateX(8px);
+    }
+}
+
+.titem {
+    width: calc(var(--u)*3.6);
+    height: calc(var(--u)*10.5);
+    z-index: 21;
+}
+
+.titem .tube {
+    position: relative;
+    width: calc(var(--u)*2.8);
+    height: calc(var(--u)*8.4);
+    border: 3px solid #fff;
+    border-top: none;
+    border-radius: 0 0 calc(var(--u)*1.4) calc(var(--u)*1.4);
+    background: rgba(255, 255, 255, .3);
+    overflow: hidden;
+}
+
+.titem b {
+    font-size: max(11px, calc(var(--u)*1));
+    color: #fff;
+    margin-top: calc(var(--u)*.4);
+}
+
+.titem.hot .tube {
+    box-shadow: 0 0 20px 8px #ff9d1d;
+}
+
+.titem.cold .tube {
+    box-shadow: 0 0 20px 8px #73a4ff;
+}
+
+.liq {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0;
+    background: #d98a7a;
+    transition: height .6s, background .6s;
+}
+
+.bub {
+    position: absolute;
+    bottom: 0;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #fff;
+    animation: rise 1.4s linear infinite;
+}
+
+@keyframes rise {
+    to {
+        transform: translateY(calc(var(--u)*-7));
+        opacity: 0;
+    }
+}
+
+/* wadah video/gambar reaksi (muncul di atas alat itu sendiri) */
+.fx {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: calc(var(--u)*5.2);
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #f5b700;
+    background: rgba(255, 248, 200, .85);
+    border-radius: 10px;
+    font-size: max(9px, calc(var(--u)*.7));
+    text-align: center;
+    overflow: hidden;
+    color: var(--navy);
+}
+
+.tube .fx {
+    height: 100%;
+    border-radius: 0;
+}
+
+.fx video, .fx img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.flame {
+    position: absolute;
+    top: calc(var(--u)*-2.6);
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: calc(var(--u)*2.6);
+    display: none;
+    animation: flick .25s infinite alternate;
+}
+
+.fire .flame {
+    display: block;
+}
+
+@keyframes flick {
+    to {
+        transform: translateX(-50%) scale(1.12) rotate(4deg);
+    }
+}
+
+.hbar {
+    position: absolute;
+    top: calc(var(--u)*-3.4);
+    left: 5%;
+    width: 90%;
+    height: 8px;
+    background: rgba(0, 0, 0, .35);
+    border-radius: 5px;
+    display: none;
+    overflow: hidden;
+}
+
+.hbar u {
+    display: block;
+    height: 100%;
+    width: 0;
+    background: #ffb300;
+}
+
+.fbtn {
+    position: fixed;
+    z-index: 61;
+    font-size: 14px;
+    padding: 9px 16px;
+    top: 8px;
+}
+
+#quest {
+    position: fixed;
+    top: 52px;
+    right: 0;
+    width: 350px;
+    max-height: min(62vh, calc(100vh - 66px));
+    overflow: auto;
+    background: rgba(255, 255, 255, .94);
+    border-radius: 16px 0 0 16px;
+    box-shadow: -4px 6px 24px rgba(11, 46, 89, .3);
+    padding: 12px;
+    z-index: 60;
+    transform: translateX(105%);
+    transition: transform .35s;
+}
+
+#lab.qopen #quest {
+    transform: none;
+}
+
+#quest h3 {
+    color: var(--navy);
+    margin-bottom: 6px;
+}
+
+.q {
+    padding: 8px 10px;
+    margin: 6px 0;
+    border-radius: 10px;
+    background: var(--sky-l);
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.q.now {
+    background: #fff3c4;
+    border: 2px solid #ffd966;
+}
+
+.q.ok {
+    opacity: .6;
+    text-decoration: line-through;
+}
+
+#toast {
+    position: fixed;
+    left: 50%;
+    top: 11vh;
+    transform: translateX(-50%);
+    max-width: min(560px, 80vw);
+    background: #fff;
+    border-left: 8px solid var(--gold);
+    border-radius: 12px;
+    padding: 10px 16px;
+    z-index: 65;
+    display: none;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .3);
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+#toast.show {
+    display: block;
+}
+
+#next {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 70;
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    font-size: 32px;
+    padding: 0;
+    display: none;
+    animation: bob 1.6s infinite;
+}
+
+#popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(11, 46, 89, .55);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+#popup.show {
+    display: flex;
+}
+
+#popup div {
+    background: #fff;
+    border-radius: 20px;
+    padding: 26px 30px;
+    width: min(420px, 88vw);
+    text-align: center;
+    border-top: 8px solid #ffda6a;
+}
+
+#popup h3 {
+    margin-bottom: 12px;
+}
+
+#popup p {
+    margin-bottom: 16px;
+    line-height: 1.5;
+}
+
+
+/* Posisi gambar api baru agar persis sama persis seperti letak emoji api sebelumnya */
+.item[data-target="spiritus"] {
+    position: relative;
+}
+
+/* Jika menggunakan tag img atau kontainer gambar api kustom */
+.item[data-target="spiritus"] .flame-img,
+.item[data-target="spiritus"] .asset img.fire-custom {
+    position: absolute;
+    top: calc(var(--u) * -4.5); /* Sesuaikan tinggi posisinya di atas sumbu */
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(var(--u) * 6.2);   /* Diperbesar (sebelumnya 3.5) */
+    height: calc(var(--u) * 6.5); /* Ukuran tinggi gambar api */
+    display: none;
+    object-fit: contain;
+    animation: flick 0.25s infinite alternate;
+    z-index: 25;
+}
+
+/* Ketika pembakar spiritus menyala, tampilkan gambar apinya */
+.item.fire[data-target="spiritus"] .flame-img,
+.item.fire[data-target="spiritus"] .asset img.fire-custom {
+    display: block;
+}
+
+@keyframes flick {
+    to {
+        transform: translateX(-50%) scale(1.12) rotate(4deg);
+    }
+}
+
+/* Bara di ujung lidi (konsep sama dengan api spiritus): tampil saat lidi 'lit' */
+.item[data-target="lidi"] .ember-img {
+    position: absolute;
+    top: calc(var(--u) * -1.2);   /* naik/turunkan agar pas di ujung lidi */
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(var(--u) * 2.6);  /* ukuran gambar bara */
+    height: calc(var(--u) * 2.6);
+    object-fit: contain;
+    display: none;
+    pointer-events: none;
+    z-index: 25;
+    animation: flick 0.25s infinite alternate;
+}
+
+.item.lit[data-target="lidi"] .ember-img {
+    display: block;
+}

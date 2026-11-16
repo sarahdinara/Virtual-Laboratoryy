@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="icon" type="image/png" href="../img/Logo-website.png">
+        <title>Evaluasi – Virtual Laboratory</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
+        <link rel="stylesheet" href="../base.css">
+        <link rel="stylesheet" href="Evaluasi.css">
+        <link rel="stylesheet" href="../dialog.css">
+    </head>
+    <body>
+
+        <section class="page plain" id="quiz">
+            <h1 class="judul-evaluasi">Evaluasi</h1>
+
+            <div class="swiper eval-swiper">
+                <div class="swiper-wrapper">
+
+                    <!-- Card 1: Kesimpulan praktikum -->
+                    <div class="swiper-slide">
+                        <div class="card eval-card">
+                            <h2>Kesimpulan Praktikum</h2>
+                            <p>Dari praktikum enzim katalase pada ekstrak hati ayam, kita dapat menyimpulkan:</p>
+                            <ul>
+                                <li><b>Tabung A (kontrol) :</b> gelembung gas O<sub>2</sub> banyak dan bara lidi menyala lebih terang, artinya katalase menguraikan H<sub>2</sub>O<sub>2</sub> menjadi H<sub>2</sub>O dan O<sub>2</sub> dengan optimal.</li>
+                                <li><b>Tabung B (asam) &amp; C (basa) :</b> gelembung sangat sedikit, karena pH yang terlalu asam atau basa mengubah struktur enzim sehingga aktivitasnya turun.</li>
+                                <li><b>Tabung D (dingin) :</b> gelembung sedikit, karena suhu rendah membuat enzim pasif (tidak rusak permanen).</li>
+                                <li><b>Tabung E (panas) :</b> hampir tidak ada gelembung, karena suhu tinggi menyebabkan denaturasi enzim.</li>
+                            </ul>
+                            <p>  </p>
+                            <p>Pengaruh dari setiap bahan yang digunakan :</p>
+                            <ul>
+                                <li><b>Ekstrak Hati Ayam (Sumber Enzim Katalase) :</b> Berperan sebagai biokatalis untuk mempercepat penguraian senyawa racun hidrogen peroksida (H<sub>2</sub>O<sub>2</sub>) menjadi (H<sub>2</sub>O) dan gas O<sub>2</sub></li>
+                                <li><b>Hidrogen Peroksida/H<sub>2</sub>O<sub>2</sub> (Substrat) : </b>Menjadi zat uji toksik/racun yang harus dinetralkan oleh enzim katalase di dalam sel. Ketika bereaksi dengan katalase, pembentukan gelembung gas O<sub>2</sub> menunjukkan aktivitas enzim.</li> 
+                                <li><b>Asam Klorida/NaCl : </b>Untuk menciptakan kondisi lingkungan pH yang sangat asam pada tabung reaksi. Tujuannya adalah menguji bagaimana perubahan derajat keasaman ekstrem memengaruhi struktur dan kerja enzim katalase.</li>
+                                <li><b>Natrium Hidroksida/NaOH :</b> Untuk menciptakan kondisi lingkungan pH yang basa pada tabung reaksi guna menguji ketahanan dan batas optimal aktivitas enzim katalase.</li>
+                                <li><b>Es Batu :</b> Menguji pengaruh suhu rendah terhadap enzim. Pada suhu dingin, enzim tidak rusak secara permanen melainkan menjadi pasif (aktivitasnya melambat).</li>
+                                <li><b>Pembakar Spiritus : </b>Menguji pengaruh suhu tinggi terhadap enzim. Panas berlebih akan menyebabkan denaturasi (kerusakan bentuk struktur protein enzim) sehingga enzim kehilangan fungsinya secara permanen.</li>
+                                <li><b>Lidi dan Korek Api :</b> Lidi yang dibakar lalu dimasukkan ke dalam tabung reaksi untuk menguji keberadaan gas O<sub>2</sub>. Jika bara lidi menyala terang atau berkobar, terbukti bahwa reaksi menghasilkan gas O<sub>2</sub>.</li>
+                            </ul>
+                            <p><b>Jadi,</b> aktivitas enzim katalase pada hati ayam sangat dipengaruhi oleh pH dan suhu, dan bekerja paling baik pada kondisi mendekati optimum.</p>
+                            <div class="row">
+                                <button class="btn" id="btnOke">Oke</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Latihan soal -->
+                    <div class="swiper-slide">
+                        <div class="card eval-card">
+                            <h2>Latihan Soal</h2>
+                            <div id="qs"></div><!-- soal dibuat otomatis oleh Evaluasi.js -->
+                            <div id="score"></div>
+                            <div class="row">
+                                <button class="btn" id="calc">Hitung Skor</button>
+                                <button class="btn alt" onclick="keluar('menu', !!PROGRESS.evaluasiHasil(), 'Kamu belum menyelesaikan evaluasi.')">Kembali ke Main Menu</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+        <script src="../audio.js"></script>
+        <script src="../common.js"></script>
+        <script src="Evaluasi.js"></script>
+    </body>
+</html>

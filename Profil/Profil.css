@@ -1,0 +1,16 @@
+/* PROFIL.CSS - halaman profil (profil.html) */
+
+.photo {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 14px;
+    border-radius: 50%;
+}
+
+.asset.photo {
+    border: 2px solid var(--navy);
+    background: var(--navy);
+    overflow: hidden;
+    margin-top: 15px;
+    margin-bottom: 25px;
+}

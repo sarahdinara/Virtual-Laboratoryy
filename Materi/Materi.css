@@ -1,0 +1,361 @@
+/* Importing google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Miniver&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap');
+
+:root {
+    /*Background*/
+    --bg-materi-2: url('../img/Background-Panduan.png');          
+    --bg-materi: url(../img/Main-Menu-Background.png);
+
+    /* Color */
+    --primary-color: #dbe2f1;
+    --secondary-color: #889fcf;
+    --pastel-light-blue: #b9c1df;
+    --gray-blue: #546a9a;
+    --white-color: #FFFFFF;
+    --dark-color: #465573;
+
+    /* Font size */
+    --font-size-small: 14px;
+    --font-size-medium: 16px;
+    --font-size-x1: 18px;
+    --font-size-xxl: 25px;
+    --font-size-title: 80px;
+    --font-size-subtitle: 40px;
+
+    /* Font weight */
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    /* Border radius */
+    --border-radius-small: 8px;
+    --border-radius-medium: 30px;
+    --border-radius-circle: 50%;
+
+    /* Site max width */
+    --site-max-width: 1300px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-image: var(--bg-materi);
+    overflow-x: hidden;
+    overflow-y: auto; /* tetap bisa di-scroll, tampilan scrollbar disembunyikan (lihat bawah) */
+}
+
+.card-wrapper {
+    max-width: 1100px;
+    width: calc(100% - 120px);
+    margin: 45px auto 50px;
+    padding: 20px 55px;      /* ruang agar card yang membesar tidak terpotong */
+    overflow-x: clip;        /* sisi kiri/kanan tetap dipotong rapi untuk slider */
+    overflow-y: visible;     /* atas/bawah dibiarkan agar card yang membesar tidak terpotong */
+}
+
+.card-list .card-item {
+    list-style: none;
+}
+
+.card-list .card-item .card-link {
+    user-select: none;
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+    display: block;
+    background: var(--white-color);
+    padding: 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    border: 2px solid transparent;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    transition: transform .3s ease, border .2s ease, box-shadow .2s ease;
+}
+
+.card-list .card-item .card-link:active {
+    cursor: grabbing;
+
+}
+
+.card-list .card-item .card-link:hover {
+    border: 2px solid var(--secondary-color);
+    box-shadow: 0 10px 20px var(--secondary-color);
+ }
+
+.card-list .card-link .card-image {
+    width: 80%;
+    margin-left: 10%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.card-list .card-link .badge {
+    color: var(--dark-color);
+    padding: 8px 16px;
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    margin: 16px 0 18px;
+    background: var(--pastel-light-blue);
+    width: fit-content;
+    border-radius: var(--border-radius-small);
+}
+
+.card-list .card-link .badge.fungsi {
+    color: #B22485;
+    background: #F9D5E5;
+}
+
+.card-list .card-link .badge.struktur {
+    color: #2E8B57;
+    background: #D1F2EB;
+}
+
+.card-list .card-link .badge.sifat {
+    color: #FF6347;
+    background: #FFE4E1;
+}
+
+.card-list .card-link .badge.mekanisme {
+    color: #4169E1;
+    background: #E6F0FF;
+}
+
+.card-list .card-link .badge.macam {
+    color: #8B4513;
+    background: #F5F5DC;
+}
+
+.card-list .card-link .badge.katalase {
+    color: #228B22;
+    background: #90EE90;
+}
+
+.card-list .card-link .badge.faktor {
+    color: #800080;
+    background: #E0B0FF;
+}
+
+.card-list .card-link .card-description {
+    color: var(--dark-color);
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-normal);
+    margin-bottom: 10px;
+}
+
+.card-list .card-link .card-button {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--border-radius-circle);
+    background: var(--secondary-color);
+    color: var(--white-color);
+    font-size: var(--font-size-medium);
+    text-decoration: none;
+    border: 2px solid var(--secondary-color);
+    cursor: pointer;
+    transform: rotate(-45deg);
+    transition: 0.4s ease;
+}
+
+.card-list .card-link:hover .card-button {
+  color: var(--secondary-color);
+  background: var(--white-color); 
+}
+
+.card-wrapper .swiper-pagination-bullet {
+    height: 13px;
+    width: 13px;
+    opacity: 0.5;
+    background : var(--secondary-color);
+}
+
+.card-wrapper .swiper-pagination-bullets-active {
+    opacity: 1;
+    background : var(--secondary-color);
+}
+
+.card-wrapper .swiper-slide-button {
+    color: var(--secondary-color);
+    margin-top: -35px;
+}
+
+@media screen and (max-width: 768px) {
+    .card-wrapper {
+        width: calc(100% - 20px);
+        margin: 0 auto 25px;
+    }
+}
+
+.card-wrapper .swiper-slide-button {
+    display: none;
+
+}
+
+/* Styling Tombol Melayang (Kembali & Mulai Praktikum) */
+.btn-floating {
+    position: fixed;
+    z-index: 1000;
+    padding: 10px 20px;
+    background-color: var(--white-color);
+    color: var(--dark-color);
+    font-weight: var(--font-weight-semibold);
+    text-decoration: none;
+    border-radius: var(--border-radius-medium);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.btn-floating:hover {
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+}
+
+/* Posisi Pojok Kiri Bawah (sejajar tombol Mulai Praktikum) */
+.btn-kembali {
+    bottom: 25px;
+    left: 25px;
+}
+
+/* Posisi Pojok Kanan Bawah (Default tersembunyi) */
+.btn-mulai {
+    bottom: 25px;
+    right: 25px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    background-color: var(--gray-blue);
+    color: var(--white-color);
+}
+
+/* Kelas untuk menampilkan tombol Mulai Praktikum */
+.btn-mulai.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* ================= REVISI ================= */
+/* Judul & subjudul di atas card */
+main {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 0 70px;
+}
+
+.materi-header {
+    text-align: center;
+    padding: 20px 30px;
+    margin: 30px auto 10px auto;
+    width: min(900px, 90vw);
+    background: var(--white-color);
+    border-radius: 20px;
+    border: 3px solid var(--secondary-color);
+    box-shadow: 0 8px 25px rgba(11, 46, 89, 0.12);
+}
+
+.materi-header h1 {
+    font-size: 48px;
+    font-weight: var(--font-weight-bold);
+    color: var(--dark-color);
+    margin-bottom: 8px;
+}
+
+.materi-header p {
+    font-size: var(--font-size-x1);
+    color: var(--gray-blue);
+    font-weight: var(--font-weight-medium);
+}
+
+/* Semua card berukuran sama; teks panjang bisa di-scroll di dalam card */
+.card-list .card-item .card-link {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas:
+        "gambar"
+        "badge"
+        "isi"
+        "tombol";
+    height: min(62vh, 480px);
+}
+
+.card-list .card-link .card-image {
+    grid-area: gambar;
+    height: 100
+}
+
+.card-list .card-link .badge {
+    grid-area: badge;
+}
+
+.card-list .card-link .card-body {
+    grid-area: isi;
+    min-height: 0;
+    overflow-y: auto;
+}
+
+.card-list .card-link .card-button {
+    grid-area: tombol;
+    margin-top: 10px;
+}
+
+/* Hover: card + isinya membesar 25% */
+.card-list .card-item:hover {
+    z-index: 10;
+}
+
+.card-list .card-item .card-link:hover {
+    transform: scale(1.25);
+}
+
+
+.card-list .card-item .card-link:has(.card-image):hover .card-image {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+/* Warna panah slider & titik jumlah card */
+:root {
+    --swiper-theme-color: var(--gray-blue);
+    --swiper-navigation-color: var(--gray-blue);
+}
+
+.swiper-button-prev, .swiper-button-next {
+    color: var(--gray-blue);
+}
+
+.swiper-pagination-bullet {
+    background: var(--gray-blue);
+}
+
+.swiper-pagination-bullet-active {
+    opacity: 1;
+    background: var(--gray-blue);
+}
+
+* {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
