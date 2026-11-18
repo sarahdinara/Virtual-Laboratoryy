@@ -26,7 +26,7 @@ const MEDIA = {
  
 };
 'ABCD'.split('').forEach(L => {
-    MEDIA[L + '_test'] = { video: `assets/video/${L}-uji-bara.mp4` };
+   
 });
 const DURASI_UJI = 4000; // ms: lamanya video uji bara berjalan (lidi menghilang selama ini)
 // Hasil pengamatan tiap tabung (n = jumlah gelembung animasi cadangan)
